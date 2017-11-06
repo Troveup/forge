@@ -1,0 +1,10 @@
+<div class="sliderWrapper dropdownWrapper" id="dropdownWrapper_{{this.id}}">
+    <!-- this template currently used only for channel mesh selection -->
+
+    <!--label class="subHeading">{{this.label}}</label-->
+    <select data-mini="true" data-name="{{this.id}}" class="uninitialized-dropdown">
+        {{#each this.meshes}}
+        <option class="channelSelectOption" data-channel="{{../id}}" data-mesh="{{this.id}}">{{this.label}}</option>
+        {{/each}}
+    </select>
+</div>

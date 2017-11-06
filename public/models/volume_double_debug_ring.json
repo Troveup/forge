@@ -1,0 +1,66 @@
+{
+    "metadata": {
+        "diameter"      : 2.000000,
+        "category"      : "ring",
+        "formatVersion" : 6,
+        "sourceFile"    : "volume_debug_ring.blend",
+        "dateGenerated" : "2015-11-23T08:35:36.972379" 
+    },
+    "meshes": [
+        {
+            "id"            : "right___cube",
+            "label"         : "Cube",
+            "channelID"     : "right",
+            "channelLabel"  : "Right",
+            "numvertices"   : 8,
+            "numtriangles"  : 12,
+            "vertices"      : [1,-1,-1,1,-1,2,1,1,-1,1,1,2,3,-1,-1,3,-1,2,3,1,-1,3,1,2],
+            "triangles"     : [3,2,0,7,6,2,5,4,6,1,0,4,2,6,4,7,3,1,1,3,0,3,7,2,7,5,6,5,1,4,0,2,4,5,7,1]
+        },
+        {
+            "id"            : "left___cube",
+            "label"         : "Cube",
+            "channelID"     : "left",
+            "channelLabel"  : "Left",
+            "numvertices"   : 8,
+            "numtriangles"  : 12,
+            "vertices"      : [-3,-1,-1,-3,-1,1,-3,1,-1,-3,1,1,-1,-1,-1,-1,-1,1,-1,1,-1,-1,1,1],
+            "triangles"     : [3,2,0,7,6,2,5,4,6,1,0,4,2,6,4,7,3,1,1,3,0,3,7,2,7,5,6,5,1,4,0,2,4,5,7,1]
+        }
+    ],
+    "controls": [
+
+    ],
+    "operators": [
+        {
+            "id": "right___cube___other___height_right___cube",
+            "label": "Height",
+            "groupID": "right___cube___other",
+            "groupLabel": "Other",
+            "type": "morph",
+            "mesh": "right___cube",
+            "minWeight": 0.500000,
+            "maxWeight": 1.000000,
+            "parameters": {
+                "modifiedCount": 4,
+                "indices": [1,3,5,7],
+                "displacements": [0,0,1.0,0,0,1.0,0,0,1.0,0,0,1.0]
+            }
+        },
+        {
+            "id": "left___cube___other___height_left___cube",
+            "label": "Height",
+            "groupID": "left___cube___other",
+            "groupLabel": "Other",
+            "type": "morph",
+            "mesh": "left___cube",
+            "minWeight": 0.500000,
+            "maxWeight": 1.000000,
+            "parameters": {
+                "modifiedCount": 4,
+                "indices": [1,3,5,7],
+                "displacements": [0,0,2.0,0,0,2.0,0,0,2.0,0,0,2.0]
+            }
+        }
+    ]
+}

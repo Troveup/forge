@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+
+  head
+
+  meta(charset="utf-8")
+  title Test Results Page
+
+  link(rel="shortcut icon", type="image/png", href="js/jasmine-2.3.4/jasmine_favicon.png")
+  link(rel="stylesheet", href="js/jasmine-2.3.4/jasmine.css")
+
+  link(rel="stylesheet", href="/styles/base.css")
+  link(rel="stylesheet", href="/styles/jquery.nouislider.min.css")
+  link(rel="stylesheet", href="/styles/jquery.nouislider.pips.min.css")
+
+  script(type="text/javascript",  src="js/jasmine-2.3.4/jasmine.js")
+  script(type="text/javascript",  src="js/jasmine-2.3.4/jasmine-html.js")
+  script(type="text/javascript",  src="js/jasmine-2.3.4/boot.js")
+
+  script(type="text/javascript",  src="/js/FORGE.js")
+  script(type="text/javascript",  src="https://code.jquery.com/jquery-1.11.3.min.js")
+  script(type="text/javascript",  src="https://code.jquery.com/ui/1.11.4/jquery-ui.js")
+  script(type="text/javascript",  src="/js/jquery.nouislider.all.min.js")
+
+  // remember to remove these on production (famous last words)
+  script(type="text/javascript",  src="js/spec/PageSpec.js")
+
+  body
+    canvas#canvas(oncontextmenu="event.preventDefault()", height="400px" width="550px")
+
+    #controls
+
+    #options
+        button#button_addToBag bag
+        button#button_addToTrove trove

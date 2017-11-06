@@ -1,0 +1,30 @@
+{{#each renderChannels}}
+    <div data-name="{{ this.id }}" class="renderChannel">
+        <!-- channel header -->
+        {{#unless ../singleChannel}}
+        <div class="channelHeader drop-label">{{ this.label }}</div>
+        {{/unless}}
+
+        <!-- channel selector -->
+        {{{ channelSelector }}}
+
+        <!-- channel sliders segmented into mesh -> group -> sliders -->
+        {{#each meshes}}
+            <div data-name="{{this.id}}" class="meshControls" id="meshControls_{{this.id}}">
+
+                {{#each this.controlGroups}}
+                <div class="groupContainer" id="sliderGroup_{{this.name}}">
+                    {{#unless ../singleGroup}}
+                    <label class="groupHeading" style="display: block;">{{ this.name }}</label>
+                    {{/unless}}
+
+                    {{#each this.controls }}
+                    {{{ this }}}
+                    {{/each}}
+                </div>
+                {{/each}}
+
+            </div>
+        {{/each}}
+    </div>
+{{/each}}

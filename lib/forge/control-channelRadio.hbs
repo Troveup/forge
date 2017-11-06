@@ -1,0 +1,10 @@
+<div class="componentSliders" id="groupSliderList_{{ this.label }}" data-enhance="false">
+    <form class="meshSelectForm">
+        <fieldset data-role="controlgroup" data-iconpos="right" data-mini="true">
+        {{#each this.meshes}}
+        <input {{#unless @index}}checked="checked"{{/unless}} id="{{../id}}::{{this.id}}" data-channelID="{{../id}}" data-meshID="{{this.id}}" class="channelSelectRadio" type="radio" name="renderComponent" value="{{@index}}">
+        <label for="{{../id}}::{{this.id}}">{{ this.label }}</label>
+        {{/each}}
+        </fieldset>
+    </form>
+</div>

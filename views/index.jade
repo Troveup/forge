@@ -1,0 +1,249 @@
+doctype html
+html(lang="en")
+  head
+    link(rel="stylesheet", href="/styles/base.css")
+    link(rel="stylesheet", href="/styles/jquery-ui.min.css")
+    link(rel="stylesheet", href="/styles/jquery-ui.structure.min.css")
+    link(rel="stylesheet", href="/noUiSlider/nouislider.min.css")
+    link(rel="stylesheet", href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css")
+    link(rel="stylesheet", href="/styles/bootstrap.min.css")
+    link(rel="stylesheet", href="/styles/bootstrap-theme.min.css")
+    link(rel="stylesheet", href="/styles/main.css")
+    script(type="text/javascript",  src="/js/vendors.js")
+    script(type="text/javascript",  src="/js/FORGE.js")
+    script(type="text/javascript",  src="/js/jquery-1.11.3.min.js")
+    script(type="text/javascript",  src="https://code.jquery.com/ui/1.11.4/jquery-ui.js")
+    script(type="text/javascript",  src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js")
+    script(type="text/javascript",  src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js")
+    script(type="text/javascript",  src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js")
+    script(type="text/javascript",  src="/noUiSlider/nouislider.min.js")
+    
+    script(type="text/javascript",  src="/js/bootstrap.min.js")
+    
+    style(type="text/css").
+      body {
+        padding-top: 93px;
+        max-width: 100%;
+        max-height: 100%;
+        padding: 0px;
+        margin: 0px;
+        overflow: hidden;
+      }
+      #sidebar {
+        position: absolute;
+        padding: 40px;
+        width: 30%;
+        left: 0;
+        top: 0;
+        max-height: 100%;
+        overflow: scroll;
+        background: #DEDEDE;
+      }
+      #main {
+        width: 70%;
+        position: absolute;
+        top: 0;
+        left: 30%;
+        overflow: hidden;
+        height: 100%;
+      }
+      #canvas {
+        position: relative;
+        left: 50%;
+        margin-left: -550px;
+      }
+      #options {
+        margin: 20px 10px;
+      }
+      .drop-label {
+        text-shadow: none;
+        color: #666;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 90%;
+        margin-top: 20px;
+      }
+      .ui-radio .ui-btn.ui-radio-on:after {
+        background-image: none;
+        background-color: #fff;
+        width: 18px;
+        height: 18px;
+        border-width: 5px;
+        border-style: solid;
+      }
+      .ui-page-theme-a .ui-radio-on:after, html .ui-bar-a .ui-radio-on:after, html .ui-body-a .ui-radio-on:after, html body .ui-group-theme-a .ui-radio-on:after, .ui-btn.ui-radio-on.ui-btn-a:after {
+        border-color: #38c;
+      }
+      input[type="radio"], input[type="checkbox"] {
+        margin-right: 10px;
+        opacity: 0;
+      }
+
+      .ui-input-text input, .ui-input-search input {
+          margin: 0;
+          height: 2em;
+          text-align: right;
+          border: 0;
+          background: transparent none;
+          -webkit-appearance: none;
+          -webkit-border-radius: inherit;
+          border-radius: inherit;
+      }
+
+      .ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a {
+          background-color: #fff;
+          border: 0px solid #FFF;
+          color: #666;
+          text-shadow: 0 1px 0 #f3f3f3;
+          width: 50px;
+          border-radius: 2px;
+          margin-left: calc(100% - 50px);
+          margin-top: 10px;
+          margin-bottom: -30px;
+          font-weight: bold;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+      }
+
+      .sliderWrapper {
+          margin-top: 40px;
+          margin-bottom: 40px;
+      }
+
+      .ui-page-theme-a .ui-focus {
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+      }
+
+      .noUi-target {
+          border-radius: 0px;
+          border: 0px solid #FFF;
+          box-shadow: none;
+          top: 12px;
+      }
+
+      .noUi-origin {
+          border-radius: 0px;
+          background: #FFF;
+      }
+
+      .noUi-background {
+          background: #999;
+          box-shadow: none;
+      }
+      .noUi-horizontal {
+          height: 5px;
+          width: 70%;
+      }
+      .noUi-horizontal .noUi-handle {
+          width: 40px;
+          height: 40px;
+          left: -18px;
+          top: -18px;
+      }
+
+      .noUi-handle:after, .noUi-handle:before {
+          content: "";
+          display: block;
+          position: absolute;
+          height: calc(100% - 6px);
+          width: calc(100% - 6px);
+          background: #DEDEDE;
+          left: 3px;
+          top: 3px;
+          border-radius: 2em;
+      }
+      .noUi-handle:after {
+          display: none;
+      }
+      .noUi-handle {
+          border: 3px solid #DEDEDE;
+          border-radius: 2em;
+          background: #FFF;
+          cursor: default;
+          box-shadow: none;
+      }
+      .noUi-active {
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+
+      }
+      .ui-page-theme-a .ui-radio-on:after, html .ui-bar-a .ui-radio-on:after, html .ui-body-a .ui-radio-on:after, html body .ui-group-theme-a .ui-radio-on:after, .ui-btn.ui-radio-on.ui-btn-a:after {
+          border-color: #f26868;
+      }
+
+  body
+    #sidebar 
+      #controls
+      #options
+        button#button_addToBag bag
+        button#button_addToTrove trove
+        script(type="application/json", id="model").
+          !{modelJSON}
+        script(type="application/json", id="initialParameters").
+          !{initialParameterWeights}
+        input(type="hidden", id="modelParentID" value="1")
+        .drop-label PRICE
+        .item-size-container
+            .item-size
+        .item-price-container 
+          .item-price $0.00
+        .drop-label SIZE
+        select#size(name='size' data-mini="true")
+          option(value='Extra Small') Extra Small
+          option(value='Small') Small
+          option(value='Medium') Medium
+          option(value='Large') Large
+          option(value='Extra Large') Extra Large
+        .drop-label MATERIAL
+
+    #main
+      canvas#canvas(oncontextmenu="event.preventDefault()", height="800px" width="1100px")
+
+    script(type="text/javascript").
+        FORGE.Page.init({
+            selectors: {                                 
+                materialSelect: "#webmenu",
+                modelParentID: "#modelParentID",
+                initialParamsBlock: "#initialParameters",
+                canvas: "#canvas"
+            },
+            admin: true,
+            storageRoot: "!{storageRoot}",
+            activeFilename: "!{modelName}",
+            workerSourcePath: "/js/priceworker.js",
+            debug: true
+        }, function(){
+          // after controls 
+        });
+
+        if (window.Worker) {
+            // var myWorker = new Worker("/js/worker.js");
+            // myWorker.onmessage = function(e) {
+                // console.log('array of length '+e.data.length);
+            // }
+            // myWorker.postMessage("wubba lubba dub dub");
+        }
+
+        $(document).ready(function(){
+          resizeDiv();
+          
+        });
+
+        window.onresize = function(event) {
+          resizeDiv();
+        }
+
+        function resizeDiv() {
+          vpw = $(window).width();
+          vph = $(window).height();
+          $('#canvas').css({'top': vph / 2 + 'px'}).css({'margin-top': '-400px'});
+        }
+
+        
+
+
+
